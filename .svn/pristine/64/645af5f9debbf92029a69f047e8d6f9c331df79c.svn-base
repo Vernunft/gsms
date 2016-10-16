@@ -1,0 +1,22 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Warren
+  Date: 2016/9/4
+  Time: 17:59
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+  <head>
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/amcharts.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <%--   <script src="js/CountAmcharts.js"></script>--%>
+    <script src="js/ItemCountAmcharts.js"></script>
+  </head>
+  <body>
+  <div class="grid-chart" id="itemCountchart"></div>
+  </body>
+</html>

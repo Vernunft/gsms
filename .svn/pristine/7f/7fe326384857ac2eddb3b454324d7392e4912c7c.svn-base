@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.axis2:axis2-adb:1.7.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.axis2/axis2-adb/1.7.3/ccc2517424cc3b2a5bfdb69984709afb6d4ee19c/axis2-adb-1.7.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.axis2/axis2-adb/1.7.3/e604df5ecb9a1ce7662650f581433470cc9c62ad/axis2-adb-1.7.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,137 @@
+import {Component, Inject, OnInit, Input, trigger, state, style, transition, animate} from '@angular/core';
+import format = require("core-js/fn/date/format");
+import {DataListService} from './DataListService'
+import {DataList} from './DataList'
+import DateTimeFormat = Intl.DateTimeFormat;
+@Component({
+    selector: 'dept-app',
+    template: `
+     <ul>
+                    <li><span ><strong>{{deptCount}}</strong>家</span>单位</li>
+                    <li><span><strong>{{itemCount}}</strong>项</span>资源项</li>
+                    <li>
+                        <span *ngIf="totalCount<=9999">
+                          <strong >{{totalCount}}</strong>万
+                        </span>
+                        <span *ngIf="totalCount>=10000">
+                            <strong>{{totalCount/10000 | number:'1.1-2'}}</strong>亿
+                         </span> 资源总量
+                        </li>
+     </ul>
+    `,
+    animations:[
+
+    ]
+
+})
+export class AppComponent implements OnInit {
+    deptCount: number;
+    itemCount: number;
+    totalCount: number;
+
+    constructor(private dataListService: DataListService) {
+        // setInterval(()=>{
+        //     this.getDeptCount();
+        //     this.getTotalCount();
+        //     this.getItemCount();
+        // },10000);
+    }
+
+    ngOnInit() {
+        this.getDeptCount();
+        this.getItemCount();
+        this.getTotalCount();
+        setInterval(()=> {
+            this.getDeptCount();
+            this.getTotalCount();
+            this.getItemCount();
+        }, 10000);
+
+    }
+
+    getDeptCount(): void {
+        this.dataListService
+            .getDeptCount()
+            .then(deptCount => this.deptCount = deptCount)
+        ;
+    }
+
+    getItemCount(): void {
+        this.dataListService
+            .getItemCount()
+            .then(itemCount => this.itemCount = itemCount)
+        ;
+    }
+
+    getTotalCount(): void {
+        this.dataListService
+            .getTotalCount()
+            .then(totalCount => this.totalCount = totalCount)
+        ;
+    }
+}
+@Component({
+    selector: 'all-app',
+    template: `
+       <ul>
+                <li *ngFor="let dataList of dataLists" >
+                    <a href="#">
+                        <img src={{dataList.iconClass}}>
+                        <div class="title">{{dataList.deptName}}</div>
+                        <div class="info">
+                            <span class="num1">{{dataList.itemCount}}</span>
+                            <span class="num2">类</span>
+                            <span class="num3"  *ngIf="dataList.totalCount<=9999">
+                      
+                            {{dataList.totalFormat}}</span>
+                            <span class="num4"  *ngIf="dataList.totalCount<=9999">万条数据</span>
+                             <span class="num3"  *ngIf="dataList.totalCount>=10000" >0{{dataList.totalCount/10000 | number:'1.1-2'}}</span>
+                            <span class="num4"  *ngIf="dataList.totalCount>=10000">亿条数据</span>
+                        </div>
+                    </a>
+                </li>
+    `,
+    styleUrls: ['app/index.css']
+
+})
+export class AllComponent {
+    dataLists: DataList[];
+
+    constructor(private dataListService: DataListService) {
+    }
+
+    ngOnInit() {
+        this.getAll();
+        setInterval(()=> {
+            this.getAll()
+        }, 10000)
+    }
+
+    getAll(): void {
+        this.dataListService
+            .getAll()
+            .then(dataLists => this.dataLists = dataLists)
+        ;
+    }
+}
+
+@Component({
+    selector: 'date-app',
+    template: `
+      {{currentTime|date:"yyyy-MM-dd HH:mm:ss"}}
+    `
+
+})
+export class DateComponent {
+    currentTime: Date;
+
+    constructor() {
+        this.currentTime = new Date;
+        setInterval(()=> {
+            this.currentTime = new Date;
+
+        }, 100);
+    }
+
+}
+

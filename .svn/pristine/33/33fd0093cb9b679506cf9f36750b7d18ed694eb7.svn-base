@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.geronimo.specs:geronimo-annotation_1.0_spec:1.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.geronimo.specs/geronimo-annotation_1.0_spec/1.1/376152978a2947bcb42ce799696316b2303e6745/geronimo-annotation_1.0_spec-1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.geronimo.specs/geronimo-annotation_1.0_spec/1.1/1f9632f935c11e144dfbe220ed84e0e614ca9414/geronimo-annotation_1.0_spec-1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

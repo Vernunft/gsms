@@ -1,0 +1,21 @@
+import {NgModule}      from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpModule} from '@angular/http';
+import {AppComponent,AllComponent,DateComponent}   from './app.component';
+import {DataListService} from './DataListService';
+import {DataList} from './DataList';
+
+import {AmChartsDirective} from './amcharts.directive';
+import './rxjs-extensions';
+@NgModule({
+    imports: [BrowserModule, HttpModule],
+    declarations: [AppComponent,AllComponent,DateComponent,AmChartsDirective],
+    providers: [
+        DataListService,
+    ],
+    bootstrap: [AppComponent,AllComponent,DateComponent],
+
+})
+
+export class AppModule {
+}

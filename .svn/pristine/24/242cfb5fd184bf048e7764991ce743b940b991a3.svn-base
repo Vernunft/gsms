@@ -1,0 +1,50 @@
+import { Injectable }    from '@angular/core';
+import { Headers, Http } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+import {DataList} from './DataList'
+@Injectable()
+export class DataListService {
+
+    private headers = new Headers({'Content-Type': 'application/json'});
+    private getDeptCountUrl = 'dataListController/getDeptCount';  // 获取单位总数
+    private getItemCountUrl = 'dataListController/getItemCount';  // 获取资源项总数
+    private getTotalCountUrl = 'dataListController/getTotalCount';  // 获取资源量总数
+    private  getAllUrl = 'dataListController/getAll';//获取已有单位列表
+    private  getItemListUrl = 'dataListController/getItemList';//获取已有单位列表
+    constructor(private http: Http) { }
+    getDeptCount(): Promise<number> {
+        return this.http.get(this.getDeptCountUrl)
+            .toPromise()
+            .then(response => response.json().deptCount as number)
+            .catch(this.handleError);
+    }
+
+    getItemCount(): Promise<number> {
+        return this.http.get(this.getItemCountUrl)
+            .toPromise()
+            .then(response => response.json().itemCount as number)
+            .catch(this.handleError);
+    }
+    getTotalCount(): Promise<number> {
+        return this.http.get(this.getTotalCountUrl)
+            .toPromise()
+            .then(response => response.json().totalCount as number)
+            .catch(this.handleError);
+    }
+    getAll(): Promise<DataList[]> {
+        return this.http.get(this.getAllUrl)
+            .toPromise()
+            .then(response => response.json() as DataList[])
+            .catch(this.handleError);
+    }
+    getItemList(): Promise<DataList[]> {
+        return this.http.get(this.getItemListUrl)
+            .toPromise()
+            .then(response => response.json() as DataList[])
+            .catch(this.handleError);
+    }
+    private handleError(error: any): Promise<any> {
+        console.error('An error occurred', error); // for demo purposes only
+        return Promise.reject(error.message || error);
+    }
+}

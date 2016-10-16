@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.ws.commons.axiom:axiom-api:1.2.19">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ws.commons.axiom/axiom-api/1.2.19/8fda9715d88f27d4b58949c635050cc8e565aed9/axiom-api-1.2.19.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ws.commons.axiom/axiom-api/1.2.19/dd3cec465fb1b211f2e527d25d52523e4ddc2db0/axiom-api-1.2.19-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
